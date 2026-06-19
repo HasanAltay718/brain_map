@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    { "id": "Hasan", "name": "Hasan Altay", "group": 1, "val": 12, "desc": "Balıkesir Üni. Bilgisayar Mühendisliği Öğrencisi | Dicle Üni. Bilgisayar Programcılığı Mezunu | Yazılım Geliştirme ve Sistem Tasarımı Meraklısı." },
+    
+    { "id": "Yazilim", "name": "Yazılım Dünyası", "group": 2, "val": 8, "desc": "Temel yazılım mimarileri, tasarım kalıpları (patterns) ve temiz kod prensipleri üzerine çalışmalar." },
+    { "id": "Python", "name": "Python", "group": 2, "val": 6, "desc": "Veri işleme, otomasyon scriptleri ve biyoinformatik algoritmaları için temel dilim." },
+    { "id": "Nodejs", "name": "Node.js", "group": 2, "val": 6, "desc": "Backend geliştirme temellerini ve asenkron programlamayı öğrendiğim ortam." },
+
+    { "id": "Biyoinformatik", "name": "Biyoinformatik", "group": 4, "val": 8, "desc": "Bilgisayar bilimleri ve biyolojinin kesişim noktalarını, genom analiz temellerini keşif süreci." },
+    { "id": "PyVista", "name": "3D Görselleştirme", "group": 4, "val": 6, "desc": "PyVista gibi kütüphanelerle medikal veya anatomik verileri 3 boyutlu modelleme denemeleri." },
+
+    { "id": "Zihin", "name": "Kişisel Gelişim", "group": 5, "val": 8, "desc": "Analitik düşünceyi ve bakış açısını besleyen kültürel ve zihinsel aktiviteler." },
+    { "id": "Edebiyat", "name": "Dünya Klasikleri", "group": 5, "val": 6, "desc": "İnsan psikolojisini ve karmaşık karakter analizlerini anlamaya yönelik okumalar (Örn: Dostoyevski)." },
+    { "id": "Sinema", "name": "Psikolojik Gerilim", "group": 5, "val": 6, "desc": "Zihin yakan kurgular ve karmaşık senaryolar üzerinden problem çözme pratiği." },
+    { "id": "Analitik", "name": "Analitik Düşünce", "group": 5, "val": 6, "desc": "Problemleri parçalara ayırma ve sistematik çözüm üretme yeteneğimi geliştirme." }
+  ],
+  "links": [
+    { "source": "Hasan", "target": "Yazilim" },
+    { "source": "Hasan", "target": "Biyoinformatik" },
+    { "source": "Hasan", "target": "Zihin" },
+    
+    { "source": "Yazilim", "target": "Python" },
+    { "source": "Yazilim", "target": "Nodejs" },
+    
+    { "source": "Biyoinformatik", "target": "PyVista" },
+    { "source": "Python", "target": "Biyoinformatik" },
+    
+    { "source": "Zihin", "target": "Edebiyat" },
+    { "source": "Zihin", "target": "Sinema" },
+    { "source": "Zihin", "target": "Analitik" }
+  ]
+}
