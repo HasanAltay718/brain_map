@@ -1,50 +1,59 @@
-/* Google Fonts'tan JetBrains Mono yükle (Daha teknik/geliştirici hissi) */
+/* Google Fonts'tan JetBrains Mono yükle (Teknik his) */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap');
 
-/* VITE EZİCİSİ (Temel Layout) */
-:root, body, #root {
+/* --- CRITICAL MOBILE FIX: Varsayılanları Tamamen Sıfırla --- */
+/* vh yerine % kullanarak mobil tarayıcı çakışmalarını önleyelim */
+html, body, #root {
   margin: 0 !important;
   padding: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  max-width: none !important;
-  background-color: #1a1a1a; /* Yumuşak koyu gri */
-  overflow: hidden;
+  width: 100% !important;
+  height: 100% !important; /* vh yerine % kullanımı */
+  background-color: #1a1a1a;
+  overflow: hidden; /* Dış scrollbar'ı engelle */
+  -webkit-overscroll-behavior: none; /* iOS Safari kaydırma engelleme */
+  overscroll-behavior: none;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'JetBrains Mono', monospace; /* Tüm site monospace */
+  font-family: 'JetBrains Mono', monospace;
 }
 
 /* UYGULAMA İSKELETİ */
 .app-container {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  border: none;
+  width: 100%;
+  height: 100%; /* Parent height %100 */
 }
 
 .graph-area {
   width: 100%;
   height: 100%;
+  cursor: grab;
 }
 
-/* --- DETAY PANELİ (SIDEBAR) --- */
+.graph-area:active {
+  cursor: grabbing;
+}
+
+/* --- MOBİL UYUMLU DETAY PANELİ (Modal/Sidebar) --- */
 .detail-panel {
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 380px;
-  background: rgba(30, 30, 30, 0.9); /* Panel arka planı */
+  width: 380px; /* Masaüstü genişliği */
+  max-width: calc(100% - 40px); /* MOBİL SIKIŞTIRMA: Ekrandan taşmasını engelle */
+  max-height: calc(100% - 40px); /* MOBİL SIKIŞTIRMA: Çok uzunsa içten scroll yap */
+  background: rgba(30, 30, 30, 0.95);
   backdrop-filter: blur(8px);
-  padding: 35px;
+  padding: 30px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   z-index: 10;
+  overflow-y: auto; /* Çok içerik varsa içte scroll */
   animation: slideIn 0.3s ease-out forwards;
 }
 
@@ -54,7 +63,7 @@
   right: 15px;
   background: transparent;
   border: none;
-  color: #666;
+  color: #888;
   font-size: 1.2rem;
   cursor: pointer;
   transition: color 0.2s;
@@ -67,14 +76,13 @@
 .node-badge {
   display: inline-block;
   padding: 4px 10px;
-  border-radius: 4px; /* Köşeli, daha teknik */
+  border-radius: 4px;
   font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 20px;
   letter-spacing: 1px;
   color: #ffffff;
-  background: transparent; /* Arka planı kodla atıyoruz */
 }
 
 .detail-panel h2 {
